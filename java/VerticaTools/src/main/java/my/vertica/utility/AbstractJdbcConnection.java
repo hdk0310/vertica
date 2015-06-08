@@ -3,11 +3,23 @@ package my.vertica.utility;
 import java.sql.Connection;
 import java.util.Properties;
 
+/**
+ * Template implementation of JdbcConnection interface.
+ * 
+ * It contains private fields for standard connection details,
+ * namely username, password, host, port, database.
+ * Depending on database type, one can add private fields for
+ * additional connection detail when subclassing this class.
+ * 
+ * @author tdongsi
+ *
+ */
 public abstract class AbstractJdbcConnection implements JdbcConnection {
 	
 	private String username;
 	private String password;
 	private String host;
+	// NOTE: port number is a String instead of int for simplicity
 	private String port;
 	private String database;
 	
@@ -80,12 +92,58 @@ public abstract class AbstractJdbcConnection implements JdbcConnection {
 	public void setDatabase(String database) {
 		this.database = database;
 	}
-
-
-	public Properties getConnectionProperties() {
-		// TODO
-		return null;
+	
+	/**
+	 * Use Builder pattern for fluent style.
+	 * Username and password are usually changed together,
+	 * making this more user-friendly than standard setter methods.
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	public JdbcConnection withLogin(String username, String password) {
+		this.username = username;
+		this.password = password;
+		return this;
 	}
 	
+	/**
+	 * Use Builder pattern for fluent style.
+	 * 
+	 * @param host
+	 * @param port
+	 * @return
+	 */
+	public JdbcConnection withHostPort(String host, String port) {
+		this.host = host;
+		this.port = port;
+		return this;
+	}
+	
+	/**
+	 * Use Builder pattern for fluent style.
+	 * 
+	 * @param database
+	 * @return
+	 */
+	public JdbcConnection withDatabase(String database) {
+		this.database = database;
+		return this;
+	}
+
+	@Override
+	public Properties getConnectionProperties() {
+		Properties myProp = new Properties();
+		myProp.put("username", this.username);
+		myProp.put("password", this.password);
+		myProp.put("host", this.host);
+		myProp.put("port", this.port);
+		myProp.put("database", this.database);
+		
+		return myProp;
+	}
+	
+	@Override
 	public abstract Connection createConnection();
 }
