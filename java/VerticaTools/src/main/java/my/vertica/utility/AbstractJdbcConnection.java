@@ -102,7 +102,7 @@ public abstract class AbstractJdbcConnection implements JdbcConnection {
 	 * @param password
 	 * @return
 	 */
-	public JdbcConnection withLogin(String username, String password) {
+	public AbstractJdbcConnection withLogin(String username, String password) {
 		this.username = username;
 		this.password = password;
 		return this;
@@ -115,7 +115,7 @@ public abstract class AbstractJdbcConnection implements JdbcConnection {
 	 * @param port
 	 * @return
 	 */
-	public JdbcConnection withHostPort(String host, String port) {
+	public AbstractJdbcConnection withHostPort(String host, String port) {
 		this.host = host;
 		this.port = port;
 		return this;
@@ -127,7 +127,7 @@ public abstract class AbstractJdbcConnection implements JdbcConnection {
 	 * @param database
 	 * @return
 	 */
-	public JdbcConnection withDatabase(String database) {
+	public AbstractJdbcConnection withDatabase(String database) {
 		this.database = database;
 		return this;
 	}
