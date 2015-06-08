@@ -20,7 +20,7 @@ public class VerticaConnection extends AbstractJdbcConnection implements
 	// Default values for local Vertica VM provided by HP
 	public static final String VM_USERNAME = "dbadmin";
 	public static final String VM_PASSWORD = "password";
-	public static final String VM_HOST = "192.168.5.133";
+	public static final String VM_HOST = "192.168.5.133"; // this maybe different
 	public static final String VM_PORT = "5433";
 	public static final String VM_DB = "VMart";
 	

@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="none">
   <test name="Test">
     <classes>
-      <class name="my.vertica.AppTest"/>
+      <class name="my.vertica.utility.VerticaConnectionTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
