@@ -12,4 +12,4 @@
 hs_err_pid*
 java/VerticaTools/target
 java/VerticaTools/test-output
-datamart.log
+vertica.log
