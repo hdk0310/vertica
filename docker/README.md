@@ -1,9 +1,9 @@
 ## Overview
 
-Based on Dockerfile from [this](https://github.com/wmarinho/docker-hp-vertica).
+This Vertica Dockerfile is based on [this](https://github.com/wmarinho/docker-hp-vertica).
 Some notes about this Dockerfile:
 
-* Added new schema, new user, new role as examples. Avoid using `dbadmin` user for development purpose.
+* Added new schema, new user and new role as examples. Avoid using `dbadmin` user for development purpose.
 * Added Java and Maven for Java-based ETL execution.
 * Demonstrated running Bash and SQL scripts to initialize the container/database.
 
@@ -106,13 +106,13 @@ Simply setting higher memory allocation using `--memory` option of `docker run` 
 To set higher memory allowance, stop the `docker-machine` and set memory as follows:
 
 ``` plain
-tdongsi$ docker-machine stop
+mymac:docker tdongsi$ docker-machine stop
 Stopping "default"...
 Machine "default" was stopped.
 
-tdongsi$ VBoxManage modifyvm default --memory 8192
+mymac:docker tdongsi$ VBoxManage modifyvm default --memory 8192
 
-tdongsi$ docker-machine start
+mymac:docker tdongsi$ docker-machine start
 Starting "default"...
 (default) Check network to re-create if needed...
 (default) Waiting for an IP...
