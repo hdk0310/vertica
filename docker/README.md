@@ -1,6 +1,12 @@
 
 ## How to run
 
+### Before running
+
+Before running `docker build`, download Vertica Community Edition from https://my.vertica.com/ and place in the same folder as the `Dockerfile`. 
+This `Dockerfile` takes `vertica-7.2.3-0.x86_64.RHEL6.rpm` as the install file.
+For personal purpose, Java and Maven are also installed into the Vertica container.
+
 ### Windows
 
 ``` plain
@@ -83,7 +89,7 @@ grant usage, create on schema
 GRANT PRIVILEGE
 ```
 
-# Troubleshooting Notes
+## Troubleshooting Notes
 
 ### "Insufficient resources" error when running ETL
 
