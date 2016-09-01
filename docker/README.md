@@ -1,3 +1,11 @@
+## Overview
+
+Based on Dockerfile from [this](https://github.com/wmarinho/docker-hp-vertica).
+Some notes about this Dockerfile:
+
+* Added new schema, new user, new role as examples. Avoid using `dbadmin` user for development purpose.
+* Added Java and Maven for Java-based ETL execution.
+* Demonstrated running Bash and SQL scripts to initialize the container/database.
 
 ## How to run
 
@@ -5,7 +13,6 @@
 
 Before running `docker build`, download Vertica Community Edition from https://my.vertica.com/ and place in the same folder as the `Dockerfile`. 
 This `Dockerfile` takes `vertica-7.2.3-0.x86_64.RHEL6.rpm` as the install file.
-For personal purpose, Java and Maven are also installed into the Vertica container.
 
 ### Windows
 
